@@ -1,1 +1,21 @@
-<p>recipe-item works!</p>
+<div
+  class="card p-2 my-2 recipe-list-card"
+  (click)="showRecipe(); addShadow($event)"
+>
+  <div class="row">
+    <div class="col-sm-8">
+      <h5 class="card-text  font-weight-bold text-primary">
+        {{ recipe.name }}
+      </h5>
+      <p class="card-text">{{ recipe.description }}</p>
+    </div>
+    <div class="col-sm-4">
+      <img
+        [src]="recipe.imagePath"
+        alt=""
+        class="card-image recipe-list-image rounded"
+      />
+    </div>
+  </div>
+  <a href="#" class="streched-link"></a>
+</div>

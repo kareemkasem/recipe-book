@@ -1,0 +1,8 @@
+@import "../../shared/variables.scss";
+
+.recipe-zoom-image {
+  max-width: 500px;
+  max-height: 500px;
+  margin: 15px 0px;
+  box-shadow: $box-shadow-large;
+}

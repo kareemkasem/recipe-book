@@ -1,12 +1,11 @@
-<app-header></app-header>
+<app-header (recipeOrShoppingList)="onNavigate($event)"></app-header>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-recipe></app-recipe>
+      <app-recipe *ngIf="showRecipe"></app-recipe>
     </div>
   </div>
-  <hr />
   <div class="row justify-content-center">
-    <app-shopping-list></app-shopping-list>
+    <app-shopping-list *ngIf="showShoppingList"></app-shopping-list>
   </div>
 </div>

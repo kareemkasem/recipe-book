@@ -1,0 +1,12 @@
+@import "../../../shared/variables.scss";
+
+.recipe-list-image {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+  box-shadow: $box-shadow-small;
+}
+
+.recipe-list-card-shadow {
+  box-shadow: $box-shadow-large;
+}

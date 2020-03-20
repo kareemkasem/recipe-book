@@ -5,17 +5,19 @@
         <form class="row">
           <div class="col-sm-7 form-group">
             <label for="name" class="text-secondary">Name</label>
-            <input type="text" id="name" class="form-control" />
+            <input type="text" id="name" class="form-control" #ingName />
           </div>
           <div class="col-sm-5 form-group">
             <label for="amount" class="text-secondary">Amount</label>
-            <input type="number" id="amount" class="form-control" />
+            <input type="number" id="amount" class="form-control" #ingAmount />
           </div>
         </form>
       </div>
       <div class="row justify-content-center shopping-list-buttons ">
-        <button class="btn btn-primary">Add</button>
-        <button class="btn btn-danger">remove</button>
+        <button class="btn btn-primary" (click)="addIngredient()">Add</button>
+        <button class="btn btn-danger">
+          remove
+        </button>
         <button class="btn btn-info">clear</button>
       </div>
     </div>
