@@ -4,9 +4,13 @@
   width: 100px;
   height: 100px;
   margin-right: 20px;
-  box-shadow: $box-shadow-small;
+  box-shadow: boxShadow(small);
+}
+
+.recipe-list-card {
+  min-width: fit-content;
 }
 
 .recipe-list-card-shadow {
-  box-shadow: $box-shadow-large;
+  box-shadow: boxShadow(large, lighten($primary, 50));
 }

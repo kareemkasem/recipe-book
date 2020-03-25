@@ -4,5 +4,14 @@
   max-width: 500px;
   max-height: 500px;
   margin: 15px 0px;
-  box-shadow: $box-shadow-large;
+  box-shadow: boxShadow(large);
+}
+
+.marker {
+  margin-right: 0.5rem;
+  font-size: 1.6rem;
+}
+
+a {
+  cursor: pointer;
 }

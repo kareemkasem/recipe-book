@@ -4,5 +4,10 @@ $secondary: rgb(252, 46, 90);
 $info: rgb(243, 71, 3);
 
 //shadows
-$box-shadow-small: 0px 0px 5px 0px rgb(167, 167, 167);
-$box-shadow-large: 0px 0px 10px 3px rgb(167, 167, 167);
+@function boxShadow($size, $color: rgb(167, 167, 167)) {
+  @if $size == small {
+    @return 0px 0px 5px 0px $color;
+  } @else if $size == large {
+    @return 0px 0px 10px 3px $color;
+  }
+}
