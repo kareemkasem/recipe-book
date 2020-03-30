@@ -1,15 +1,16 @@
 <div class="row">
   <div class="col-xs-12">
-    <img
-      [src]="recipe.imagePath"
-      alt=""
-      class="img-responsive recipe-zoom-image"
-    />
+    <h1 class="text-primary">{{ recipe.name }}</h1>
   </div>
 </div>
-<div class="row">
+<hr />
+<div class="row img-row">
   <div class="col-xs-12">
-    <h1 class="text-primary">{{ recipe.name }}</h1>
+    <img
+      [src]="recipe.imagePath"
+      alt="{{ recipe.name }}"
+      class="img-responsive recipe-zoom-image"
+    />
   </div>
 </div>
 <div class="row">
@@ -20,10 +21,12 @@
       </button>
       <ul class="dropdown-menu">
         <li class="dropdown-item" (click)="addIngredients()">
-          <a href="">To Shopping List</a>
+          <a>To Shopping List</a>
         </li>
-        <li class="dropdown-item"><a href="#">Edit Recipe</a></li>
-        <li class="dropdown-item"><a href="#">Delete Recipe</a></li>
+        <li class="dropdown-item" (click)="editRecipe()">
+          <a>Edit Recipe</a>
+        </li>
+        <li class="dropdown-item"><a>Delete Recipe</a></li>
       </ul>
     </div>
   </div>

@@ -1,21 +1,17 @@
 <div
-  class="card p-2 my-2 recipe-list-card"
-  (click)="addShadow($event); showRecipe()"
+  class="card mb-3 p-1"
+  [routerLink]="['/recipes', recipeId]"
+  routerLinkActive="recipe-list-card-shadow"
 >
-  <div class="row">
-    <div class="col-sm-8">
-      <h5 class="card-text  font-weight-bold text-primary">
-        {{ recipe.name }}
-      </h5>
-      <p class="card-text">{{ recipe.description }}</p>
+  <div class="row no-gutters align-items-center">
+    <div class="col-4">
+      <img [src]="recipe.imagePath" [alt]="recipe.name" class="card-img" />
     </div>
-    <div class="col-sm-4">
-      <img
-        [src]="recipe.imagePath"
-        alt=""
-        class="card-image recipe-list-image rounded"
-      />
+    <div class="col-8">
+      <div class="card-body">
+        <h5 class="card-title text-primary">{{ recipe.name }}</h5>
+        <p class="card-text">{{ recipe.description }}</p>
+      </div>
     </div>
   </div>
-  <a href="#" class="streched-link"></a>
 </div>

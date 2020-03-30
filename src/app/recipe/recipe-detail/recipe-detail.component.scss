@@ -1,10 +1,14 @@
 @import "../../shared/variables.scss";
 
 .recipe-zoom-image {
-  max-width: 500px;
-  max-height: 500px;
+  max-width: 350px;
+  max-height: 350px;
   margin: 15px 0px;
   box-shadow: boxShadow(large);
+}
+
+.img-row {
+  justify-content: center;
 }
 
 .marker {
@@ -14,4 +18,14 @@
 
 a {
   cursor: pointer;
+}
+
+@media (min-width: 525px) {
+  .recipe-zoom-image {
+    max-width: 500px;
+    max-height: 500px;
+  }
+  .img-row {
+    justify-content: start;
+  }
 }

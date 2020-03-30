@@ -1,16 +1,10 @@
-<div class="row">
-  <div class="col-md-5">
-    <app-recipe-list></app-recipe-list>
-  </div>
-  <div class="col-md-7">
-    <app-recipe-detail
-      [recipe]="recipeDetails"
-      *ngIf="recipeDetails; else hi"
-    ></app-recipe-detail>
-    <ng-template #hi>
-      <p class="my-5 text-info">
-        please select a recipe
-      </p>
-    </ng-template>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 order-2 order-lg-1 mt-5 mt-lg-0">
+      <app-recipe-list></app-recipe-list>
+    </div>
+    <div class="col-lg-7 offset-lg-1 order-1 order-lg-2">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>

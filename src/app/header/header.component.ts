@@ -11,8 +11,4 @@ export class HeaderComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-
-  onSelect(viewOption: string): void {
-    this.recipeOrShoppingList.emit(viewOption);
-  }
 }

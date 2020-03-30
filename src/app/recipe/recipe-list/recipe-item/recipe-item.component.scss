@@ -1,16 +1,11 @@
 @import "../../../shared/variables.scss";
 
-.recipe-list-image {
-  width: 100px;
-  height: 100px;
-  margin-right: 20px;
+.card-img {
   box-shadow: boxShadow(small);
 }
 
-.recipe-list-card {
-  min-width: fit-content;
-}
-
 .recipe-list-card-shadow {
+  outline: none;
+  border: 1px solid lighten($primary, 30);
   box-shadow: boxShadow(large, lighten($primary, 50));
 }
