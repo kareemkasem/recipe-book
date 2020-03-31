@@ -1,8 +1,8 @@
 import { ingredient } from "../shared/ingredient.model";
-import { EventEmitter } from "@angular/core";
+import { Subject } from "rxjs";
 
 export class ShoppingListService {
-  ingredientsChanged = new EventEmitter<ingredient[]>();
+  ingredientsChanged = new Subject<ingredient[]>();
 
   ingredients: ingredient[] = [
     new ingredient("apple", 5),
@@ -22,6 +22,6 @@ export class ShoppingListService {
       this.ingredients.push(ing);
     }
 
-    this.ingredientsChanged.emit(this.ingredients.slice());
+    this.ingredientsChanged.next(this.ingredients.slice());
   }
 }

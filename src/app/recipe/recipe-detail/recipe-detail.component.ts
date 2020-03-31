@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { Recipe } from "../recipe.model";
 import { ShoppingListService } from "src/app/shopping-list/shopping-list.service";
 import { Router, ActivatedRoute, Params } from "@angular/router";
-import { RescipeService } from "../rescipe.service";
+import { RecipeService } from "../rescipe.service";
 
 @Component({
   selector: "app-recipe-detail",
@@ -14,7 +14,7 @@ export class RecipeDetailComponent implements OnInit {
   id: number;
   constructor(
     private shoppingListService: ShoppingListService,
-    private recipeService: RescipeService,
+    private recipeService: RecipeService,
     private router: Router,
     private route: ActivatedRoute
   ) {}

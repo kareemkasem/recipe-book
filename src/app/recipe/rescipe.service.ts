@@ -1,7 +1,7 @@
 import { Recipe } from "./recipe.model";
 import { ingredient } from "../shared/ingredient.model";
 
-export class RescipeService {
+export class RecipeService {
   recipes: Recipe[] = [
     new Recipe(
       "Pizza",
