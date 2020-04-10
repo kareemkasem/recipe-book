@@ -3,6 +3,7 @@
     <div class="btn btn-secondary" routerLink="/recipes/new">new Recipe</div>
   </div>
 </div>
+<p *ngIf="!isFetched">loading...</p>
 <div class="row">
   <div class="col-xs-12">
     <app-recipe-item

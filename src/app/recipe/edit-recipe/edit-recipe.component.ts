@@ -8,7 +8,6 @@ import {
   Validators,
   FormBuilder,
 } from "@angular/forms";
-import { Recipe } from "../recipe.model";
 
 @Component({
   selector: "app-edit-recipe",
@@ -48,15 +47,7 @@ export class EditRecipeComponent implements OnInit {
       imagePath = recipe.imagePath;
 
       for (let ing of recipe.ingredients) {
-        ingredients.push(
-          this.formBuilder.group({
-            name: this.formBuilder.control(ing.name, Validators.required),
-            amount: this.formBuilder.control(ing.amount, [
-              Validators.required,
-              Validators.pattern("^[1-9]+[0-9]*$"),
-            ]),
-          })
-        );
+        this.addingIngredients(ingredients, ing.name, ing.amount);
       }
     }
 
@@ -68,21 +59,29 @@ export class EditRecipeComponent implements OnInit {
     });
   }
 
+  private addingIngredients(
+    array: FormArray,
+    name: string = null,
+    amount: number = null
+  ) {
+    array.push(
+      this.formBuilder.group({
+        name: this.formBuilder.control(name, Validators.required),
+        amount: this.formBuilder.control(amount, [
+          Validators.required,
+          Validators.pattern("^[1-9]+[0-9]*$"),
+        ]),
+      })
+    );
+  }
+
   get ingredientsControls() {
     return (<FormArray>this.recipeForm.get("ingredients")).controls;
   }
 
   addIngredientControl() {
     let formArr = this.recipeForm.get("ingredients") as FormArray;
-    formArr.push(
-      this.formBuilder.group({
-        name: this.formBuilder.control(null, Validators.required),
-        amount: this.formBuilder.control(null, [
-          Validators.required,
-          Validators.pattern("^[1-9]+[0-9]*$"),
-        ]),
-      })
-    );
+    this.addingIngredients(formArr);
   }
 
   removeIngredient(index: number) {
@@ -111,7 +110,12 @@ export class EditRecipeComponent implements OnInit {
     this.recipeForm.reset();
   }
 
-  cancel() {
-    this.router.navigate(["../"]);
+  leave() {
+    const leaveConfirmation = confirm("do you really want to leave ?");
+    if (leaveConfirmation) {
+      this.router.navigate(["../"], { relativeTo: this.route });
+    } else {
+      return;
+    }
   }
 }

@@ -1,8 +1,8 @@
 @import "../../shared/variables.scss";
 
 .recipe-zoom-image {
-  max-width: 350px;
-  max-height: 350px;
+  max-width: 250px;
+  max-height: 250px;
   margin: 15px 0px;
   box-shadow: boxShadow(large);
 }
@@ -22,8 +22,8 @@ a {
 
 @media (min-width: 525px) {
   .recipe-zoom-image {
-    max-width: 500px;
-    max-height: 500px;
+    max-width: 351px;
+    max-height: 351px;
   }
   .img-row {
     justify-content: start;

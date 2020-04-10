@@ -5,10 +5,7 @@ export class ShoppingListService {
   ingredientsChanged = new Subject<ingredient[]>();
   itemToEdit = new Subject<ingredient>();
 
-  ingredients: ingredient[] = [
-    new ingredient("apple", 5),
-    new ingredient("potato", 10),
-  ];
+  ingredients: ingredient[] = [];
 
   getIngredients(): ingredient[] {
     return this.ingredients.slice();

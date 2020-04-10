@@ -12,6 +12,7 @@ import { RecipeService } from "../recipe.service";
 export class RecipeDetailComponent implements OnInit {
   recipe: Recipe;
   id: number;
+  isFetched = false;
   constructor(
     private shoppingListService: ShoppingListService,
     private recipeService: RecipeService,
@@ -23,6 +24,7 @@ export class RecipeDetailComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.id = +params["id"];
       this.recipe = this.recipeService.getRecipe(this.id);
+      this.isFetched = true;
     });
   }
 
@@ -30,7 +32,6 @@ export class RecipeDetailComponent implements OnInit {
     this.recipe.ingredients.forEach((ing) =>
       this.shoppingListService.addIngredient(ing, false)
     );
-    this.router.navigate(["/shopping-list"]);
   }
 
   editRecipe() {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Recipe } from "../recipe.model";
 import { RecipeService } from "../recipe.service";
+import { finalize } from "rxjs/operators";
 
 @Component({
   selector: "app-recipe-list",
@@ -9,6 +10,7 @@ import { RecipeService } from "../recipe.service";
 })
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[];
+  isFetched = false;
 
   constructor(private recipeService: RecipeService) {}
 
@@ -16,6 +18,7 @@ export class RecipeListComponent implements OnInit {
     this.recipes = this.recipeService.getRecipes();
     this.recipeService.recipesSubject.subscribe((recipes) => {
       this.recipes = recipes;
+      this.isFetched = true;
     });
   }
 }

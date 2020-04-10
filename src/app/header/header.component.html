@@ -17,16 +17,20 @@
       </li>
     </ul>
     <div class="nav navbar-nav navbar-right">
-      <div class="dropdown">
+      <div class="dropleft">
         <a
           class="dropdown-toggle text-light"
           role="button"
           data-toggle="dropdown"
           >manage</a
         >
-        <div class="dropdown-menu">
-          <a href="" class="dropdown-item">save data</a>
-          <a href="" class="dropdown-item">fetch data</a>
+        <div class="dropdown-menu dropleft">
+          <button class="dropdown-item" (click)="saveData()">
+            save data
+          </button>
+          <button class="dropdown-item" (click)="fetchData()">
+            fetch data
+          </button>
         </div>
       </div>
     </div>
