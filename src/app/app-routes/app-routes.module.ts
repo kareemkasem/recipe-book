@@ -7,12 +7,15 @@ import { RecipeDetailComponent } from "../recipe/recipe-detail/recipe-detail.com
 import { EditRecipeComponent } from "../recipe/edit-recipe/edit-recipe.component";
 import { RecipeResolverService } from "../shared/recipe-resolver.service";
 import { RecipeDetailGuardService } from "../recipe/recipe-detail/recipe-detail-guard.service";
+import { AuthComponent } from "../auth/auth.component";
+import { AuthGuard } from "../auth/auth.guard";
 
 const appRoutes: Routes = [
-  { path: "", redirectTo: "/recipes", pathMatch: "full" },
+  { path: "", redirectTo: "/auth", pathMatch: "full" },
   {
     path: "recipes",
     component: RecipeComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: "new", component: EditRecipeComponent },
       {
@@ -29,7 +32,12 @@ const appRoutes: Routes = [
       },
     ],
   },
-  { path: "shopping-list", component: ShoppingListComponent },
+  {
+    path: "shopping-list",
+    component: ShoppingListComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: "auth", component: AuthComponent },
   { path: "**", component: PageNotFoundComponent },
 ];
 

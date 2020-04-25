@@ -20,6 +20,13 @@ a {
   cursor: pointer;
 }
 
+.spinner-view {
+  height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (min-width: 525px) {
   .recipe-zoom-image {
     max-width: 351px;

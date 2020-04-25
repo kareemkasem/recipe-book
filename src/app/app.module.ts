@@ -1,7 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 import { HeaderComponent } from "./header/header.component";
 import { AppComponent } from "./app.component";
@@ -18,6 +18,9 @@ import { EditRecipeComponent } from "./recipe/edit-recipe/edit-recipe.component"
 import { RecipeService } from "./recipe/recipe.service";
 import { RecipeDetailGuardService } from "./recipe/recipe-detail/recipe-detail-guard.service";
 import { RecipeResolverService } from "./shared/recipe-resolver.service";
+import { AuthComponent } from "./auth/auth.component";
+import { LoadingSpinnerComponent } from "./shared/loading-spinner/loading-spinner.component";
+import { AuthInterceptor } from "./auth/auth-interceptor.service";
 
 @NgModule({
   declarations: [
@@ -31,6 +34,8 @@ import { RecipeResolverService } from "./shared/recipe-resolver.service";
     RecipeItemComponent,
     PageNotFoundComponent,
     EditRecipeComponent,
+    AuthComponent,
+    LoadingSpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +49,11 @@ import { RecipeResolverService } from "./shared/recipe-resolver.service";
     RecipeService,
     RecipeDetailGuardService,
     RecipeResolverService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })

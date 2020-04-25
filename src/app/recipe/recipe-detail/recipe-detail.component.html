@@ -1,4 +1,6 @@
-<p *ngIf="!isFetched">loading...</p>
+<div *ngIf="!isFetched" class="spinner-view">
+  <app-loading-spinner></app-loading-spinner>
+</div>
 <div *ngIf="isFetched">
   <div class="row">
     <div class="col-xs-12">
